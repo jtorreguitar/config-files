@@ -1,5 +1,21 @@
 # --- personal ---
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] \$ '
+PROMPT_DIRTRIM=3
+PS1='\[\033[01;34m\]$(shortenedPWD)\[\033[00m\] \$ '
+shortenedPWD() {
+  maxSlashes=3
+  slashCount=$(($(dirs +0 | sed 's/[^\/]//g' | wc -c)-1))
+  if [ $slashCount -gt $maxSlashes ]
+  then
+    prefix=$([[ $(pwd) == $HOME* ]] && echo "~" || echo "/")
+    dirs=($(echo $(dirs +0 | tr "/" "\n")))
+    shortenedPath=$(joinBy "/" ${dirs[@]: -$maxSlashes})
+    echo $prefix$shortenedPath
+  else
+    echo $(dirs +0)
+  fi
+}
+
+function joinBy { local IFS="$1"; shift; echo "$*"; }
 
 alias ty='sudo -E env "PATH=$PATH"'
 
