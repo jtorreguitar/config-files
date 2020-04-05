@@ -14,6 +14,7 @@ set shiftwidth=2
 set foldmethod=indent
 set foldlevel=99
 let mapleader=" "
+set laststatus=2
 
 call plug#begin('~/.vim/plugged')
   Plug 'kien/ctrlp.vim'
