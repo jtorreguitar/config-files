@@ -16,9 +16,6 @@ set foldlevel=99
 let mapleader=" "
 
 call plug#begin('~/.vim/plugged')
-  Plug 'tmhedberg/SimpylFold'
-  Plug 'vim-scripts/indentpython.vim'
-  Plug 'nvie/vim-flake8'
   Plug 'kien/ctrlp.vim'
   Plug 'junegunn/goyo.vim'
 call plug#end()

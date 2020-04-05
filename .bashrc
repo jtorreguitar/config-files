@@ -34,6 +34,8 @@ export PATH=$NODEJS_HOME:$PATH
 # Go
 export GOPATH=$HOME/go:${CROS}/src/platform/tast-tests:${CROS}/src/platform/tast:${CROS}/chroot/usr/lib/gopath
 
+alias v='nvim'
+
 # Recording
 # Recall that for ffmpeg you must run pavucontrol and set the correct audio
 # This only needs to be done once, it should recall your preference next
