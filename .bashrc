@@ -34,28 +34,17 @@ export PATH=$NODEJS_HOME:$PATH
 # Go
 export GOPATH=$HOME/go:${CROS}/src/platform/tast-tests:${CROS}/src/platform/tast:${CROS}/chroot/usr/lib/gopath
 
-# Git
-alias gl='git log --oneline'
-alias gb='git branch --color'
-alias gc='git checkout'
-alias gpull='git pull origin `git rev-parse --abbrev-ref HEAD`'
-alias gpush='git push'
-alias gda='git branch | grep -v "*" | xargs git branch -D'
-
-# Eclipse
-alias eclipse='eclipse/java-2019-06/eclipse/eclipse & disown' 
-
 # Recording
 # Recall that for ffmpeg you must run pavucontrol and set the correct audio
 # This only needs to be done once, it should recall your preference next
 # time you run it.
 alias recvs='ffmpeg -y -f x11grab -s 1920x1080 -i :0.0 -f alsa -i default out.mkv'
 
+export PATH="$PATH:$HOME/.local/bin"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-export PATH="$PATH:$HOME/.local/bin"
 
 # helpful commands for working with chrome/chrome os
 # set ip address environment variable
