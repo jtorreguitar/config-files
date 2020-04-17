@@ -32,7 +32,7 @@ export NODEJS_HOME=/opt/node-v10.1.0-linux-x64/bin
 export PATH=$NODEJS_HOME:$PATH
 
 # Go
-export GOPATH=$HOME/go:${CROS}/src/platform/tast-tests:${CROS}/src/platform/tast:${CROS}/chroot/usr/lib/gopath
+export GOPATH=$HOME/go:${CROS}/src/platform/tast-tests:${CROS}/src/platform/tast:${CROS}/chroot/usr/lib/gopath:$HOME/uhid-tests
 
 alias vim='nvim'
 
@@ -82,3 +82,5 @@ xbusb() { cros flash usb:// xbuddy://remote/$BOARD/latest/test; }
 # miscelaneous
 grep-all() { ls | xargs grep $1; }
 findtext() { find -maxdepth $1 -type f | xargs grep $2; }
+far() { find -type f | xargs sed -i "s/$1/$2/g"; }
+seg() { cat $1 | head -n $(($2+10)) | tail -n 21; }
