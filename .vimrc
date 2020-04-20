@@ -30,10 +30,17 @@ map <S-j> <c-e>
 map <S-k> <c-y>
 map <leader>n :noh<ENTER>
 
+" change splits more naturally
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 command G Goyo
 command W w !sudo tee %
 
 autocmd BufnewFile,BufRead *.go set tw=70
+autocmd BufnewFile,BufRead *.go nnoremap <leader>r :GoRename<Space>
 
 " syntastic settings
 let g:syntastic_mode_map = { "mode": "passive",
@@ -47,7 +54,7 @@ let g:syntastic_check_on_wq = 0
 
 " running this twice will make the errors disappear from the screen
 " but still appear on next write
-map <leader>st :windo SyntasticToggleMode<ENTER>:windo SyntasticToggleMode<ENTER>
+map <leader>st :windo SyntasticToggleMode<ENTER>:windo SyntasticToggleMode<ENTER><ENTER>
 
 " go settings
 " use goimports for formatting
