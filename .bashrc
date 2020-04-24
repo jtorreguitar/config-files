@@ -23,7 +23,7 @@ export PATH="$HOME/chromiumos/chromite/bin:$PATH"
 
 # useful env vars
 export CR=~/chromium
-export CROS=~/chromiumos
+export CROS=~/cros
 # set vim mode in bash
 set -o vi
 
@@ -31,10 +31,16 @@ set -o vi
 export NODEJS_HOME=/opt/node-v10.1.0-linux-x64/bin
 export PATH=$NODEJS_HOME:$PATH
 
+export PATH=$HOME/depot_tools:$PATH
+
 # Go
 export GOPATH=$HOME/go:${CROS}/src/platform/tast-tests:${CROS}/src/platform/tast:${CROS}/chroot/usr/lib/gopath:$HOME/uhid-tests
 
+# Tast
+export CGO_ENABLED=0
+
 alias vim='nvim'
+alias tmux='env TERM=xterm-256color tmux -f ~/config-files/.tmux.conf'
 
 # Recording
 # Recall that for ffmpeg you must run pavucontrol and set the correct audio
